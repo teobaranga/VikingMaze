@@ -46,7 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DemoVikings\Demo\Assets\AnimationController.cs" />
+     <Compile Include="Assets\DemoVikings\Demo\Assets\CloseCameraFade.cs" />
+     <Compile Include="Assets\DemoVikings\Demo\Assets\Label\Label.cs" />
+     <Compile Include="Assets\DemoVikings\Demo\Assets\SetupVerification.cs" />
+     <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonCameraNET.cs" />
+     <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonControllerNET.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
+     <None Include="Assets\DemoVikings\Demo\READ ME FIRST.txt" />
+     <None Include="Assets\DemoVikings\Demo\Shaders\NewShader.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
