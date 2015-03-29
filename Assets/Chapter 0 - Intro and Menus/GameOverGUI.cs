@@ -40,7 +40,7 @@ public class GameOverGUI : BaseGUI {
 
 	private void replayChapter() {
 		if(!somethingWasSelected) {
-			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, PlayerPrefs.GetString("LastScenePlayed", "0-03 Main menu"), true);
+			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, "Main", true);
 
 			somethingWasSelected = true;
 		}

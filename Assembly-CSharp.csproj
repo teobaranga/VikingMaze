@@ -55,6 +55,7 @@
      <Compile Include="Assets\DemoVikings\Demo\Assets\SetupVerification.cs" />
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonCameraNET.cs" />
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonControllerNET.cs" />
+     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
      <Compile Include="Assets\_Common\Scripts\AndroidDisableScreenSleep.cs" />
@@ -80,7 +81,6 @@
      <Compile Include="Assets\_Common\Scripts\Battle\Players\LikeMikeCombatant.cs" />
      <Compile Include="Assets\_Common\Scripts\Battle\SelectionRect.cs" />
      <Compile Include="Assets\_Common\Scripts\BillboardScript.cs" />
-     <Compile Include="Assets\_Common\Scripts\CameraFade.cs" />
      <Compile Include="Assets\_Common\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\_Common\Scripts\CameraShake.cs" />
      <Compile Include="Assets\_Common\Scripts\CartRace\CartObstacle.cs" />
@@ -96,7 +96,6 @@
      <Compile Include="Assets\_Common\Scripts\FBHoverBehavior.cs" />
      <Compile Include="Assets\_Common\Scripts\JamesGasBehavior.cs" />
      <Compile Include="Assets\_Common\Scripts\LMBBallBehavior.cs" />
-     <Compile Include="Assets\_Common\Scripts\MusicPlayer.cs" />
      <Compile Include="Assets\_Common\Scripts\PaceBehavior.cs" />
      <Compile Include="Assets\_Common\Scripts\ParticleSorter.cs" />
      <Compile Include="Assets\_Common\Scripts\PauseGUI.cs" />
