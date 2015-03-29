@@ -2,22 +2,24 @@
 using System.Collections;
 
 public class Spawn : MonoBehaviour {
-
+	public EnemyBehaviour enemyScript;
 	public int maxEnemies=3;
 	public GameObject enemy;
 	public Maze mazeScript; 
 	public int minSpawnDistance = 5;
 
 	public GameObject player;
-	private int numberOfEnemies;
+	public int numberOfEnemies;
 
 
 	// Use this for initialization
 	void Start () {
+		numberOfEnemies = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		numberOfEnemies = GameObject.FindGameObjectsWithTag ("Enemy").Length;
 		if (numberOfEnemies < maxEnemies) {
 			SpawnEnemy();
 		}
@@ -30,6 +32,5 @@ public class Spawn : MonoBehaviour {
 			return;
 		}
 		Instantiate (enemy, point, Quaternion.identity);
-		numberOfEnemies++;
 	}
 }

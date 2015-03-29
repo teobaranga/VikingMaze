@@ -49,6 +49,7 @@
      <Compile Include="Assets\Chapter 0 - Intro and Menus\GameOverGUI.cs" />
      <Compile Include="Assets\Chapter 0 - Intro and Menus\MainMenuGUI.cs" />
      <Compile Include="Assets\Chapter 0 - Intro and Menus\S001Puppeteer.cs" />
+     <Compile Include="Assets\Chest.cs" />
      <Compile Include="Assets\DemoVikings\Demo\Assets\AnimationController.cs" />
      <Compile Include="Assets\DemoVikings\Demo\Assets\CloseCameraFade.cs" />
      <Compile Include="Assets\DemoVikings\Demo\Assets\Label\Label.cs" />
@@ -56,8 +57,12 @@
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonCameraNET.cs" />
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonControllerNET.cs" />
      <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EndofLevel.cs" />
+     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
+     <Compile Include="Assets\Scripts\Spawnchest.cs" />
+     <Compile Include="Assets\Scripts\chest.cs" />
      <Compile Include="Assets\_Common\Scripts\AndroidDisableScreenSleep.cs" />
      <Compile Include="Assets\_Common\Scripts\BaseGUI.cs" />
      <Compile Include="Assets\_Common\Scripts\Battle\AttackAnimationState.cs" />
