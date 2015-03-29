@@ -5,6 +5,10 @@ Project("{B4AF7612-FCAB-C6B3-EB8A-1FF3AA5786F0}") = "VikingMaze", "Assembly-CSha
 EndProject
 Project("{B4AF7612-FCAB-C6B3-EB8A-1FF3AA5786F0}") = "VikingMaze", "Assembly-CSharp-Editor.csproj", "{1B56D01E-95F1-7C21-4FB7-7F8DBDBBB9A8}"
 EndProject
+Project("{B4AF7612-FCAB-C6B3-EB8A-1FF3AA5786F0}") = "VikingMaze", "Assembly-UnityScript-firstpass.unityproj", "{2F7CC5C3-49FC-B523-D08B-F539C47F13AF}"
+EndProject
+Project("{B4AF7612-FCAB-C6B3-EB8A-1FF3AA5786F0}") = "VikingMaze", "Assembly-UnityScript.unityproj", "{EF491442-2759-7635-9D46-00C5DEBF7BCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +23,19 @@ Global
 		{1B56D01E-95F1-7C21-4FB7-7F8DBDBBB9A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B56D01E-95F1-7C21-4FB7-7F8DBDBBB9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B56D01E-95F1-7C21-4FB7-7F8DBDBBB9A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7CC5C3-49FC-B523-D08B-F539C47F13AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7CC5C3-49FC-B523-D08B-F539C47F13AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7CC5C3-49FC-B523-D08B-F539C47F13AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7CC5C3-49FC-B523-D08B-F539C47F13AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF491442-2759-7635-9D46-00C5DEBF7BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF491442-2759-7635-9D46-00C5DEBF7BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF491442-2759-7635-9D46-00C5DEBF7BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF491442-2759-7635-9D46-00C5DEBF7BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-													GlobalSection(MonoDevelopProperties) = preSolution
+															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

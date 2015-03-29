@@ -28,8 +28,8 @@ public class Maze : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//CreateWalls ();
-		Instantiate(vik, new Vector3 (3.0f, 3.0f, 3.0f), Quaternion.identity);
+		CreateWalls ();
+		Instantiate(vik, new Vector3 (-5.0f, 0.5f, -5.0f), Quaternion.identity);
 	}
 
 	void CreateWalls() {
