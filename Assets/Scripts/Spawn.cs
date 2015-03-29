@@ -6,9 +6,8 @@ public class Spawn : MonoBehaviour {
 	public int maxEnemies=3;
 	public GameObject enemy;
 	public Maze mazeScript; 
-	public int minSpawnDistance = 5;
 
-	public GameObject player;
+	public GameObject player = GameObject.Find("Player");
 	public int numberOfEnemies;
 
 
@@ -26,11 +25,15 @@ public class Spawn : MonoBehaviour {
 	}
 
 	void SpawnEnemy () {
+		Vector3 pos = player.transform.position;
 		int index = Random.Range (0, mazeScript.cellCentres.Count);
-		Vector3 point = /*new Vector3 (1.0f, 0.0f, 10.0f);*/ mazeScript.cellCentres [index];
-		if (Vector3.Distance (player.transform.position, new Vector3 (1.0f, 0.0f, 10.0f)) < minSpawnDistance) {
-			return;
+		Vector3 point = mazeScript.cellCentres [index];
+		int distance = (int)Vector3.Distance (pos, point);
+		print (distance);
+		if ( distance > 40 ) {
+			print ("true");
+			Instantiate (enemy, point, Quaternion.identity);
 		}
-		Instantiate (enemy, point, Quaternion.identity);
+		return; 
 	}
 }

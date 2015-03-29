@@ -31,6 +31,7 @@ public class Maze : MonoBehaviour {
 	void Start () {
 		CreateWalls ();
 		Instantiate(vik, new Vector3 (-5.5f, 2f, -5.0f), new Quaternion(0, 1, 0, 1));
+
 	}
 
 	void CreateWalls() {
@@ -58,6 +59,13 @@ public class Maze : MonoBehaviour {
 				tempWall.transform.parent = wallHolder.transform;
 			}
 		}
+		Vector3 v1 = new Vector3 (-6, 0, -6);
+		Vector3 v2 = new Vector3 (-6,0,-4);
+		Vector3 v3 = new Vector3 (-7,0,-5);
+
+		tempWall = Instantiate(wall, v3, Quaternion.identity) as GameObject;
+		tempWall = Instantiate(wall, v1, Quaternion.Euler(0.0f, 90.0f, 0.0f)) as GameObject;
+		tempWall = Instantiate(wall, v2, Quaternion.Euler(0.0f, 90.0f, 0.0f)) as GameObject;
 
 		CreateCells ();
 	}
@@ -205,6 +213,6 @@ public class Maze : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }

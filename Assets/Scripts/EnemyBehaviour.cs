@@ -37,10 +37,10 @@ public class EnemyBehaviour : MonoBehaviour {
 
 	void OnCollisionEnter (Collision collision) {
 		/*collide = true;*/
-		if (collision.gameObject.name == "Wall(Clone)" || collision.gameObject.name == "Enemy(Clone)") {
-			transform.Rotate (Vector3.up, 90f);
-		}
 
+
+
+			
 		if(collision.gameObject.tag == "Player")
 		{
 			Destroy(collision.gameObject);
