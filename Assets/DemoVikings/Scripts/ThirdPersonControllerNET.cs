@@ -90,9 +90,10 @@ public class ThirdPersonControllerNET : MonoBehaviour
 	void Update ()
 	// Handle rotation here to ensure smooth application.
 	{
+		Plane plane = new Plane(Vector3.up, Vector3.zero);
+		Vector3 hitPoint = target.transform.position;
 
 		float rotationAmount = 0.0f;
-		Vector3 mousePosition = Input.mousePosition;
 		
 		if (Input.GetMouseButton (1) && (!requireLock || controlLock || Screen.lockCursor))
 		// If the right mouse button is held, rotation is locked to the mouse
@@ -124,14 +125,33 @@ public class ThirdPersonControllerNET : MonoBehaviour
 		Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 		
 		float angle = 0f;
-		if (Input.GetMouseButton (1)){
-			var direction = Input.mousePosition - target.transform.position;
-			angle = Vector3.Angle(target.transform.position, worldPos);
+		if (Input.GetMouseButton(1))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	 
+			float ent  = 100.0f;
+			if (plane.Raycast(ray, out ent))
+			{
+				Debug.Log("Plane Raycast hit at distance: " + ent);
+				hitPoint = ray.GetPoint(ent);
+				Debug.DrawRay (ray.origin, ray.direction * ent, Color.green);
+			}
+			else
+				Debug.DrawRay (ray.origin, ray.direction * 10, Color.red);
+	 
 		}
 
 		worldPos.y = 0;
 		//transform.LookAt(worldPos);
-		target.transform.RotateAround (target.transform.up, angle);
+		Vector3 pos = hitPoint - target.transform.position;
+		angle = Vector2.Angle(new Vector2(target.transform.forward.x, target.transform.forward.z), new Vector2(pos.x, pos.z));
+		Vector3 cross = Vector3.Cross(new Vector2(target.transform.forward.x, target.transform.forward.z), new Vector2(pos.x, pos.z));
+		if (cross.z > 0)
+			angle = 360 - angle;
+		Vector3 targetRotation = transform.rotation.eulerAngles;
+		targetRotation.y += angle;
+		if(angle != 90f)
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRotation), 100f * Time.fixedDeltaTime);
 		
 		if (Input.GetKeyDown(KeyCode.Backslash) || Input.GetKeyDown(KeyCode.Plus))
 		{
