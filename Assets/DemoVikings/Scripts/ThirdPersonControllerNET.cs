@@ -154,13 +154,13 @@ public class ThirdPersonControllerNET : MonoBehaviour
         //if (isRemotePlayer) return;
 
 
-		if (grounded)
+		if (grounded && Input.GetMouseButton (0))
 		{
 			target.drag = groundDrag;
 				// Apply drag when we're grounded
 			
 			//Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-				Vector3 movement = Input.GetAxis ("Vertical")* target.transform.forward + SidestepAxisInput * target.transform.right;
+				Vector3 movement = target.transform.forward + SidestepAxisInput * target.transform.right;
 				
 				float appliedSpeed = walking ? speed / walkSpeedDownscale : speed;
 					// Scale down applied speed if in walk mode
