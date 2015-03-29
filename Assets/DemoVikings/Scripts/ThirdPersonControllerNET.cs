@@ -90,7 +90,6 @@ public class ThirdPersonControllerNET : MonoBehaviour
 	void Update ()
 	// Handle rotation here to ensure smooth application.
 	{
-        if (isRemotePlayer) return;
 
 		float rotationAmount;
 		
@@ -156,7 +155,7 @@ public class ThirdPersonControllerNET : MonoBehaviour
 		);
 			// Shoot a ray downward to see if we're touching the ground
 
-        if (isRemotePlayer) return;
+        //if (isRemotePlayer) return;
 
 
 		if (grounded)

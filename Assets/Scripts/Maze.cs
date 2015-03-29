@@ -10,6 +10,7 @@ public class Maze : MonoBehaviour {
 	}
 
 	public GameObject wall;
+	public GameObject vik;
 	public float wallLength = 1.0f;
 	public int xSize = 5;
 	public int ySize = 5;
@@ -27,7 +28,8 @@ public class Maze : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CreateWalls ();
+		//CreateWalls ();
+		Instantiate(vik, new Vector3 (3.0f, 3.0f, 3.0f), Quaternion.identity);
 	}
 
 	void CreateWalls() {
