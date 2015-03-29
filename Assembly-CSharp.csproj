@@ -56,6 +56,7 @@
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonCameraNET.cs" />
      <Compile Include="Assets\DemoVikings\Scripts\ThirdPersonControllerNET.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
+     <Compile Include="Assets\Scripts\Spawn.cs" />
      <Compile Include="Assets\_Common\Scripts\AndroidDisableScreenSleep.cs" />
      <Compile Include="Assets\_Common\Scripts\BaseGUI.cs" />
      <Compile Include="Assets\_Common\Scripts\Battle\AttackAnimationState.cs" />

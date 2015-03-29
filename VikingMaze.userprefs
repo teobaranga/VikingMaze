@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Chapter 0 - Intro and Menus\MainMenuGUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Maze.cs">
     <Files>
       <File FileName="Assets\Scripts\Maze.cs" Line="1" Column="1" />
       <File FileName="Assets\DemoVikings\Scripts\ThirdPersonControllerNET.cs" Line="1" Column="1" />
       <File FileName="Assets\DemoVikings\Demo\Assets\AnimationController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoVikings\Scripts\ThirdPersonNetworkVik.cs" Line="1" Column="1" />
       <File FileName="Assets\DemoVikings\Scripts\ThirdPersonCameraNET.cs" Line="1" Column="1" />
       <File FileName="Assets\Chapter 0 - Intro and Menus\MainMenuGUI.cs" Line="1" Column="1" />
       <File FileName="Assets\_Common\Scripts\BaseGUI.cs" Line="1" Column="1" />

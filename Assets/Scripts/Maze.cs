@@ -14,6 +14,7 @@ public class Maze : MonoBehaviour {
 	public float wallLength = 1.0f;
 	public int xSize = 5;
 	public int ySize = 5;
+	public List<Vector3> cellCentres;
 
 	private Vector3 initialPos;
 	private GameObject wallHolder;
@@ -94,6 +95,11 @@ public class Maze : MonoBehaviour {
 			
 			cells[cellprocess].west = allWalls[eastWestProcess];
 			cells[cellprocess].north = allWalls[(childProcess + (xSize+1)*ySize)+xSize-1];
+		}
+		for (int i=0; i<cells.Length; i++) {
+			double y_coord = cells[i].east.transform.position.x;
+			double x_coord = cells[i].north.transform.position.z;
+			cellCentres.Add (new Vector3 ((float) x_coord, 0f, (float) y_coord));
 		}
 		CreateMaze ();
 	}
