@@ -7,7 +7,7 @@ public class ThirdPersonControllerNET : MonoBehaviour
 {
 	public Rigidbody target;
 		// The object we're steering
-	public float speed = 5.0f, walkSpeedDownscale = 2.0f, turnSpeed = 3.0f, mouseTurnSpeed = 10.0f, jumpSpeed = 1.0f;
+	public float speed = 20.0f, walkSpeedDownscale = 2.0f, turnSpeed = 3.0f, mouseTurnSpeed = 10.0f, jumpSpeed = 1.0f;
 		// Tweak to ajust character responsiveness
 	public LayerMask groundLayers = -1;
 		// Which layers should be walkable?
@@ -92,37 +92,6 @@ public class ThirdPersonControllerNET : MonoBehaviour
 	{
 		Plane plane = new Plane(Vector3.up, Vector3.zero);
 		Vector3 hitPoint = target.transform.position;
-
-		float rotationAmount = 0.0f;
-		
-		if (Input.GetMouseButton (1) && (!requireLock || controlLock || Screen.lockCursor))
-		// If the right mouse button is held, rotation is locked to the mouse
-		{
-			if (controlLock)
-			{
-				Screen.lockCursor = true;
-			}
-			
-			rotationAmount = Input.GetAxis ("Mouse X") * mouseTurnSpeed * Time.deltaTime;
-		}
-		else
-		{
-			if (controlLock)
-			{
-				Screen.lockCursor = false;
-			}
-			
-			//rotationAmount = Input.GetAxis ("Horizontal") * turnSpeed * Time.deltaTime;
-		}
-		
-		//if (Input.GetAxis ("Horizontal") != 0.0f)
-			//rotationAmount = Input.GetAxis ("Horizontal") / Mathf.Abs(Input.GetAxis ("Horizontal")) * turnSpeed * Time.deltaTime;
-		
-		Vector3 MousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, target.transform.position.z);
-		Vector3 mousePos = Input.mousePosition;
-		mousePos.z = -(transform.position.x - Camera.main.transform.position.x);
-
-		Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 		
 		float angle = 0f;
 		if (Input.GetMouseButton(1))
@@ -131,18 +100,10 @@ public class ThirdPersonControllerNET : MonoBehaviour
 	 
 			float ent  = 100.0f;
 			if (plane.Raycast(ray, out ent))
-			{
-				Debug.Log("Plane Raycast hit at distance: " + ent);
 				hitPoint = ray.GetPoint(ent);
-				Debug.DrawRay (ray.origin, ray.direction * ent, Color.green);
-			}
-			else
-				Debug.DrawRay (ray.origin, ray.direction * 10, Color.red);
 	 
 		}
-
-		worldPos.y = 0;
-		//transform.LookAt(worldPos);
+		
 		Vector3 pos = hitPoint - target.transform.position;
 		angle = Vector2.Angle(new Vector2(target.transform.forward.x, target.transform.forward.z), new Vector2(pos.x, pos.z));
 		Vector3 cross = Vector3.Cross(new Vector2(target.transform.forward.x, target.transform.forward.z), new Vector2(pos.x, pos.z));
@@ -153,10 +114,7 @@ public class ThirdPersonControllerNET : MonoBehaviour
 		if(angle != 90f)
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRotation), 100f * Time.fixedDeltaTime);
 		
-		if (Input.GetKeyDown(KeyCode.Backslash) || Input.GetKeyDown(KeyCode.Plus))
-		{
-			walking = !walking;
-		}
+		Camera.main.transform.position =  Vector3.Lerp(Camera.main.transform.position, new Vector3(transform.position.x - 3, transform.position.y+5, transform.position.z - 3), 3f * Time.deltaTime);
 	}
 	
 	
@@ -201,27 +159,8 @@ public class ThirdPersonControllerNET : MonoBehaviour
 			target.drag = groundDrag;
 				// Apply drag when we're grounded
 			
-			if (Input.GetButton ("Jump"))
-			// Handle jumping
-			{
-				target.AddForce (
-					jumpSpeed * target.transform.up +
-						target.velocity.normalized * directionalJumpFactor,
-					ForceMode.VelocityChange
-				);
-					// When jumping, we set the velocity upward with our jump speed
-					// plus some application of directional movement
-				
-				if (onJump != null)
-				{
-					onJump ();
-				}
-			}
-			else
-			// Only allow movement controls if we did not just jump
-			{
-				//Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-				Vector3 movement = Input.GetAxis ("Vertical")* target.transform.forward; // + SidestepAxisInput * target.transform.right;
+			//Vector3 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+				Vector3 movement = Input.GetAxis ("Vertical")* target.transform.forward + SidestepAxisInput * target.transform.right;
 				
 				float appliedSpeed = walking ? speed / walkSpeedDownscale : speed;
 					// Scale down applied speed if in walk mode
@@ -235,14 +174,13 @@ public class ThirdPersonControllerNET : MonoBehaviour
 				if (movement.magnitude > inputThreshold)
 				// Only apply movement if we have sufficient input
 				{
-					target.AddForce (movement.normalized * appliedSpeed, ForceMode.VelocityChange);
+					target.AddForce (movement.normalized * appliedSpeed * 1.2f, ForceMode.VelocityChange);
 				}
 				else
 				// If we are grounded and don't have significant input, just stop horizontal movement
-				{
-					target.velocity = new Vector3 (0.0f, target.velocity.y, 0.0f);
-					return;
-				}
+			{
+				target.velocity = new Vector3 (0.0f, target.velocity.y, 0.0f);
+				return;
 			}
 		}
 		else
@@ -251,7 +189,6 @@ public class ThirdPersonControllerNET : MonoBehaviour
 				// If we're airborne, we should have no drag
 		}
 	}
-	
 	
 	void OnDrawGizmos ()
 	// Use gizmos to gain information about the state of your setup
